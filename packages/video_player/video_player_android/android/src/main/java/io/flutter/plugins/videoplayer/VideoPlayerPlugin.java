@@ -27,6 +27,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
+import com.goterl.lazysodium.SodiumAndroid;
 
 /** Android platform implementation of the VideoPlayerPlugin. */
 public class VideoPlayerPlugin implements FlutterPlugin, AndroidVideoPlayerApi {
@@ -55,6 +56,8 @@ public class VideoPlayerPlugin implements FlutterPlugin, AndroidVideoPlayerApi {
   public static void registerWith(
       @NonNull io.flutter.plugin.common.PluginRegistry.Registrar registrar) {
     final VideoPlayerPlugin plugin = new VideoPlayerPlugin(registrar);
+    SodiumAndroid sodium = new SodiumAndroid();
+    sodium.sodium_init();
     registrar.addViewDestroyListener(
         view -> {
           plugin.onDestroy();

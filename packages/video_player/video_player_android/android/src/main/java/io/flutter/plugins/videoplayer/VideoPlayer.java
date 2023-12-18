@@ -62,7 +62,7 @@ final class VideoPlayer {
 
   private final VideoPlayerOptions options;
 
-  private DefaultHttpDataSource.Factory httpDataSourceFactory = new DefaultHttpDataSource.Factory();
+  private EncryptedDataSource.Factory httpDataSourceFactory = new EncryptedDataSource.Factory();
 
   VideoPlayer(
       Context context,
